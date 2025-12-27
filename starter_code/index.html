@@ -30,6 +30,18 @@
         }
         
         // TODO: Add listener for postMessage
+        window.addEventListener('message', (event) => {
+            // For security, you might want to check event.origin here
+            console.log('Message received from iframe:', event.data);
+            // Handle messages as needed
+            if (event.data === 'change-color') {
+                if (document.body.style.backgroundColor === 'red') {
+                    document.body.style.backgroundColor = 'white';
+                } else {
+                    document.body.style.backgroundColor = 'red';    
+                }
+            }
+        });
     </script>
 </body>
 </html>
